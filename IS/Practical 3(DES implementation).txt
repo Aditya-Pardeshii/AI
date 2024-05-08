@@ -1,0 +1,20 @@
+from Crypto.Cipher import DES
+from Crypto.Random import get_random_bytes
+from Crypto.Util.Padding import pad, unpad
+
+# Generate a random 8-byte key
+key = get_random_bytes(8)
+
+# Create a DES cipher object
+cipher = DES.new(key, DES.MODE_ECB)
+
+# Message to be encrypted
+message = bHello world!
+
+# Encrypt the message
+cipher_text = cipher.encrypt(pad(message, DES.block_size))
+print(Encrypted, cipher_text)
+
+# Decrypt the message
+decrypted_text = unpad(cipher.decrypt(cipher_text), DES.block_size)
+print(Decrypted, decrypted_text.decode())

@@ -1,0 +1,18 @@
+def main():
+    plaintext = "common sense is not so common"
+    key = 8
+
+    ciphertext = [''] * key
+
+    for col in range(key):
+        pointer = col
+
+        while pointer < len(plaintext):
+            ciphertext[col] += plaintext[pointer]
+            pointer += key
+
+    return ''.join(ciphertext)
+
+if __name__ == '__main__':
+    encrypted_text = main()
+    print("Ciphertext:", encrypted_text)
